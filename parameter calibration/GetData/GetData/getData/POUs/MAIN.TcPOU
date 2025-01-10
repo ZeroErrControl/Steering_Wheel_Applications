@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="MAIN" Id="{029892a6-0f34-45e5-8091-4b3788a64910}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	(*--- Triansmit PDO ---*)
+	DualPosDiff       AT%I*   :DINT;//双编码器差值
+	actVelo           AT%I*   :DINT;//实际速度
+	actPosition       AT%I*   :DINT;//实际位置
+	(*--- Receive PDO ---*)
+	targetVelo        AT%Q*   :DINT;//目标速度
+	siOperationMode   AT%Q*   :SINT;//运动模式
+	udiProAcc         AT%Q*   :UDINT;//目标加速度
+	udiProDec         AT%Q*   :UDINT;//目标减速度
+	(*--- User ---*)
+	modAngle:     DINT;//角度取余
+	actAngle:     LREAL;//实际角度
+	rotation        :BOOL;//旋转方向
+	rotationSingle  :INT;//旋转标志位
+	sampleVelo:   DINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[siOperationMode := 3;
+udiProAcc:=50000;
+udiProDec:=50000;
+//计算当前角度
+modAngle:= ABS(actPosition MOD 524288);//角度取余
+actAngle:= (DINT_TO_LREAL(modAngle)/524288)*360;//实际角度
+IF rotation = FALSE THEN
+	IF actAngle < 180 THEN
+		IF rotationSingle = 2 THEN//切换模式
+			rotation := TRUE;
+			rotationSingle := 3;
+			targetVelo:=0;
+		ELSE
+			IF actAngle <= 5 THEN
+				rotationSingle := 1;
+			END_IF
+			targetVelo:=(ABS(LREAL_TO_DINT(actAngle*1.5)))+30;
+		END_IF	
+	ELSIF actAngle >= 180 THEN
+		IF actAngle >= 355 AND rotationSingle = 1 THEN
+			rotationSingle := 2;
+		END_IF
+		targetVelo:=(ABS(LREAL_TO_DINT((360-actAngle)*1.5)))+30;
+	END_IF
+ELSE 
+	IF actAngle < 180 THEN
+		IF actAngle <= 5 AND rotationSingle = 4 THEN
+			rotationSingle := 5;
+		END_IF
+		targetVelo:=-(ABS(LREAL_TO_DINT(actAngle*1.5)))-30;
+	ELSIF actAngle >= 180 THEN
+		IF rotationSingle = 5 THEN//切换模式
+			rotation := 0;
+			rotationSingle := 0;
+			targetVelo:=0;
+		ELSE
+			IF actAngle >= 355 THEN
+				rotationSingle := 4;
+			END_IF
+			targetVelo:=-(ABS(LREAL_TO_DINT((360-actAngle)*1.5)))-30;
+		END_IF	
+	END_IF
+END_IF
+sampleVelo := targetVelo * 257;]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="134" Count="1" />
+      <LineId Id="62" Count="0" />
+      <LineId Id="91" Count="8" />
+      <LineId Id="137" Count="0" />
+      <LineId Id="101" Count="0" />
+      <LineId Id="136" Count="0" />
+      <LineId Id="103" Count="26" />
+      <LineId Id="138" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
