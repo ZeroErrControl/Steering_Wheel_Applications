@@ -13,7 +13,7 @@ eRob110H100I-BHM-18ET
   <tr>
     <td align="center">
       <img src="https://cdn-fusion.imgcdn.store/i/2025/23509ce5bc056e5d.png" width="150"><br>
-      **eRob110H100I-BHM-18ET**<br>
+      ***eRob110H100I-BHM-18ET***<br>
       (100:1 ratio, high-precision encoder, EtherCAT version)<br>
       V6 version - 1 unit
     </td>
