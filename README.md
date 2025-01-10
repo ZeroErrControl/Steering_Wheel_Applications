@@ -102,9 +102,9 @@ Follow the user manual to add PDO parameters and map these variables to correspo
 | Target velocity                 | 0x60FF      | GVL.targetVelo           |
 
 
-# 3. Program Usage
+## 3. Program Usage
 
-## 3.1 Import Program
+### 3.1 Import Program
 - Import the following files into your project:
   - `Main.TcPOU`
   - `KalmanFilter.TcPOU`
@@ -112,12 +112,12 @@ Follow the user manual to add PDO parameters and map these variables to correspo
 
 ---
 
-## 3.2 Import Configuration File
+### 3.2 Import Configuration File
 - Modify the parameters in `Offset` under `Main.TcPOU` according to the configuration parameters output by the data calibration program.
 
 ---
 
-## 3.3 Run the Program
+### 3.3 Run the Program
 1. **Compile and Activate Configuration**:
    - Compile the program → Restart TwinCAT (Config Mode) → Activate Configuration.
 
