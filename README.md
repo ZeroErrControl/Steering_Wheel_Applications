@@ -6,30 +6,55 @@ This project is a single-joint compliance control demo for a robotic joint based
 eRob110H100I-BHM-18ET
 
 ![1736469986775.png](https://cdn-fusion.imgcdn.store/i/2025/23509ce5bc056e5d.png)
-Description: (100:1 ratio, high-precision encoder, EtherCAT version) V6 version
-Quantity: 1 unit
-Connecting Flange
 
+### Hardware Components
 
-Quantity: 1 piece
-Steering Wheel
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://cdn-fusion.imgcdn.store/i/2025/23509ce5bc056e5d.png" width="150"><br>
+      **eRob110H100I-BHM-18ET**<br>
+      (100:1 ratio, high-precision encoder, EtherCAT version)<br>
+      V6 version - 1 unit
+    </td>
+    <td align="center">
+      <img src="flange.png" width="150"><br>
+      **Connecting Flange**<br>
+      1 piece
+    </td>
+    <td align="center">
+      <img src="steering_wheel.png" width="150"><br>
+      **Steering Wheel**<br>
+      1 unit
+    </td>
+    <td align="center">
+      <img src="epower.png" width="150"><br>
+      **ePower Power Supply**<br>
+      1 unit
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="custom_cable.png" width="150"><br>
+      **eRob Custom Cable**<br>
+      1 piece
+    </td>
+    <td align="center">
+      <img src="network_cable.png" width="150"><br>
+      **Network Cable**<br>
+      1 piece
+    </td>
+    <td align="center">
+      <img src="hex_screw_m4.png" width="150"><br>
+      **Inner Hexagon Cylinder Head Screws**<br>
+      M4 × 30 - 4 pieces
+    </td>
+    <td align="center">
+      <img src="hex_screw_m5.png" width="150"><br>
+      **Inner Hexagon Countersunk Head Screws**<br>
+      M5 × 20 - 10 pieces
+    </td>
+  </tr>
+</table>
 
-Quantity: 1 unit
-ePower Power Supply
-
-Quantity: 1 unit
-eRob Custom Cable
-
-Quantity: 1 piece
-Network Cable
-
-Quantity: 1 piece
-Inner Hexagon Cylinder Head Screws
-
-Size: M4 × 30
-Quantity: 4 pieces
-Inner Hexagon Countersunk Head Screws
-
-Size: M5 × 20
-Quantity: 10 pieces
 
